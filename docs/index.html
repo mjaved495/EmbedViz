@@ -9,24 +9,64 @@
 	</head>
 	
 	<body>
-	    <h1>Department Word Cloud</h1>
-		<div id="wc_vis" class="scholars_vis_container" align="middle"></div>
+	    <h1>Department Word Cloud (Modified)</h1>
+		<div id="wc_vis" class="scholars_vis_container"></div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-		<!-- In production, use these:-->
 		<script src="https://scholars.cornell.edu/js/scholars-vis/scholars-vis.js"></script>
 		<script src="https://scholars.cornell.edu/js/scholars-vis/embed/word_cloud.js"></script>
-		
+
 		<script>
+			
+			var arr = [];
+				arr["https://scholars.cornell.edu/display/mlc68"] = "https://btiscience.org/michelle-heck/";
+				arr["https://scholars.cornell.edu/display/gwb1"]  = "https://btiscience.org/gary-blissard/";
+				arr["https://scholars.cornell.edu/display/cc283"] = "https://btiscience.org/carmen-catala/";
+				arr["https://scholars.cornell.edu/display/zf25"]  = "https://btiscience.org/zhangjun-fei/";
+				arr["https://scholars.cornell.edu/display/jjg33"] = "https://btiscience.org/jim-giovannoni/";
+				arr["https://scholars.cornell.edu/display/mjh78"] = "https://btiscience.org/maria-harrison/";
+				arr["https://scholars.cornell.edu/display/gj32"]  = "https://btiscience.org/georg-jander/";
+				arr["https://scholars.cornell.edu/display/dfk8"]  = "https://btiscience.org/dan-klessig/";
+				arr["https://scholars.cornell.edu/display/fl329"] = "https://btiscience.org/fay-wei-li/";
+				arr["https://scholars.cornell.edu/display/gbm7"]  = "https://btiscience.org/greg-martin/";
+				arr["https://scholars.cornell.edu/display/lam87"] = "https://btiscience.org/lukas-mueller/";
+				arr["https://scholars.cornell.edu/display/ejr77"] = "https://btiscience.org/eric-richards/";
+				arr["https://scholars.cornell.edu/display/fs31"]  = "https://btiscience.org/schroeder/";
+				arr["https://scholars.cornell.edu/display/ds28"]  = "https://btiscience.org/david-stern/";
+				arr["https://scholars.cornell.edu/display/jv27"]  = "https://btiscience.org/joyce-van-eck/";
+
 			$().ready(function() {
 		        var dwc = new ScholarsVis.WordCloud.DepartmentVisualization({
 		            department : 'http://scholars.cornell.edu/individual/org98030',
-		            target : '#wc_vis'
+		            target : '#wc_vis',
+		            transform : dataModifier
 		        });
 		        dwc.show();
 			});
+			
+			function dataModifier(rawDataStruct) {
+			    // Execute the default transformation first.
+			    var dataStruct = ScholarsVis.WordCloud.transform(rawDataStruct);
+
+			    // Modify the resulting structure, as desired.
+			    dataStruct.forEach(function(modifyKeyword){
+			    	// console.log(modifyKeyword.entities[0].uri);
+			    	modifyKeyword.entities.forEach(function(entity){
+						if(arr[entity.uri]){
+			    			entity.uri = arr[entity.uri];
+			    		}
+			    	});
+			    });
+			    
+			    // Return the modified data structure.
+			    return dataStruct;
+			    
+			    function modifyKeyword(keywordStruct) {
+			        keywordStruct.text = keywordStruct.text.toUpperCase();
+			    }
+			}
 		</script>
 	</body>
 </html>
