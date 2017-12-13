@@ -1,4 +1,4 @@
-# Embed Scholars@Cornell Visualization
+# Embed Scholars@Cornell Visualization   (Written by Jim  Blake)
 
 This is about embedding the Individual word cloud or the Department word cloud.
 
