@@ -28,7 +28,7 @@ JavaScript resources:
 
 --------------------------------------------------------------------------------
 
-new ScholarsVis.WordCloud.PersonVisualization()
+# new ScholarsVis.WordCloud.PersonVisualization()
       Creates a structure for the simple word cloud. Fetches data for the
       specified faculty member.
 
