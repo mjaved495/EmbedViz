@@ -1,4 +1,4 @@
-# EmbedViz
+# Embed Scholars@Cornell Visualization
 
 This is about embedding the Individual word cloud or the Department word cloud.
 
