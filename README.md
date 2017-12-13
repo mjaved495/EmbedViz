@@ -28,33 +28,33 @@ JavaScript resources:
 
 --------------------------------------------------------------------------------
 
-** new ScholarsVis.WordCloud.PersonVisualization() **
+`new ScholarsVis.WordCloud.PersonVisualization()`
       Creates a structure for the simple word cloud. Fetches data for the
       specified faculty member.
 
-new ScholarsVis.WordCloud.FullPersonVisualization()
+`new ScholarsVis.WordCloud.FullPersonVisualization()`
       Creates a structure for the full word cloud visualization, including vis 
       view, table view, and export buttons. Fetches data for the specified
       faculty member.
 
-new ScholarsVis.WordCloud.DepartmentVisualization()
+`new ScholarsVis.WordCloud.DepartmentVisualization()`
       Creates a structure for the simple word cloud. Fetches data for the
       specified department. 
 
-new ScholarsVis.WordCloud.FullDepartmentVisualization()
+`new ScholarsVis.WordCloud.FullDepartmentVisualization()`
       Creates a structure for the full word cloud visualization, including vis 
       view, table view, and export buttons. Fetches data for the specified
       department. 
 
-ScholarsVis.WordCloud.transform
+`ScholarsVis.WordCloud.transform`
       The default function for transforming the data from the server into the 
       form that is used by the display function.
       INPUTS AND OUTPUTS LISTED BELOW.
 
-ScholarsVis.WordCloud.display
+`ScholarsVis.WordCloud.display`
       The default function for displaying the word cloud.
 
-ScholarsVis.WordCloud.closer
+`ScholarsVis.WordCloud.closer`
       The default function for closing the word cloud. Used when switching between
       views, or when closing a modal dialog box.
 
